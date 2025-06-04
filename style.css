@@ -1,0 +1,1520 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl, dd {
+	margin: 0;
+	padding: 0;
+	font-family:"Noto Sans", "Roboto", sans-serif,"";
+	font-size: 1vw;
+	transition: background-color 1s ease-out;
+}
+body {
+	background-color: #070707;
+
+}
+/* body.white {
+	background-color: #fff;
+} */
+h1 {
+	font-size: 16px;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+ul, ol {
+	list-style: none;
+}
+img {
+	max-width: 100%;
+	vertical-align: top;
+	border: none;
+}
+video {
+	vertical-align: top;
+}
+body::-webkit-scrollbar {
+	width: 6px;  /* 스크롤바의 너비 */
+}
+
+body::-webkit-scrollbar-thumb {
+	height: 3%; /* 스크롤바의 길이 */
+	background: #f086a776; /* 스크롤바의 색상 */
+	border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+	background: #ffffff;  /*스크롤바 뒷 배경 색상*/
+}
+
+/* 🧩인트로 */
+#intro {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	font-weight: 300;
+	background-color: #070707;
+	background-size: calc(1670/1920*100%) auto;
+}
+#intro .loding_bar {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	background-color: #070707;
+	border: 1px solid #4E4E4E ;
+	border-radius: 20px;
+	transform: translate(-50%,-50%);
+	width: 80%;
+	max-width: 672px;
+	box-sizing: border-box;
+	text-align: center;
+}
+#intro .loding_bar p {
+	display: inline-block;
+	padding: 13px;
+	font-size: 1.8em;
+	color: #4E4E4E;
+	letter-spacing: 0.1em;
+}
+#intro .loding_bar p span {
+	font-weight: 400;
+	color: #fff;
+}
+
+#intro .loding_bar .progress {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	margin: 5px 0 3px;
+	height: 19px;
+	box-sizing: border-box;
+	border-radius: 20px;
+	width: 100%;
+}
+#intro .loding_bar .progress .bar {
+	position: relative;
+	top: 25%;
+	transform: translateY(-40%);
+	width: 0;
+	height: 100%;
+	background-color: #f09fb93e;
+}
+#intro .loding_bar .progress .bar .icon {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translate(50%,-50%);
+	width: auto;
+	height: 40px;
+}
+#intro .loding_bar .progress .bar .icon img {
+	width: auto;
+	height: 100%;
+}
+
+@media only screen and (max-width: 1280px) {
+	#intro .loding_bar .progress {
+		height: 15px;
+	}
+	#intro .loding_bar .progress .bar .icon {
+		height: 34px;
+	}
+}
+
+/* 🧩헤더 */
+#start {
+	position: relative;
+	width: 100%;
+}
+#start header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+}
+#start header .inner {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	height: 120px;
+	margin: 0 auto;
+	align-items: center;
+}
+#start header .logo h1 {
+	color: #fff;
+	font-size: 1.9em;
+	font-weight: 300;
+	letter-spacing: 0.08em;
+	padding: 10px 15px;
+}
+#start header nav ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 50px;
+}
+#start header nav ul li a{
+	display: block;
+	padding: 20px 40px;
+	font-size: 1.1em;
+	font-weight: 500;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 0.05em;
+	margin-bottom: 10px;
+}
+#start header.hd-dark nav ul li a {
+	color: #000;
+}
+#start header nav ul li:hover a,
+#start header nav ul li.active a {
+	color: #F09FB8;
+}
+
+/* 🧩tab */
+#start header .dim {
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(0, 0, 0, .5);
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+#start header .dim.active {
+	display: block;
+}
+#tab {
+	display: none;
+	background-image: url(./source/images/ico_tab_open.png);
+	text-indent: -9999px;
+	font-size: 0;
+	width: 23px;
+	height: 23px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 5%;
+	transition: right 0.3s ease-out;
+}
+#tab.close {
+	right: 55%;
+	background-image: url(./source/images/ico_tab_close.png);
+}
+
+/* #start header nav ul li.on a {
+	color: #000;
+} */
+@media only screen and (max-width: 1280px) {
+
+}
+@media only screen and (max-width: 1020px) {
+	#start header nav ul li a {
+    font-size: 1.5em;
+	}
+}
+@media only screen and (max-width: 960px) {
+	#start header nav ul {
+    gap: 30px;
+	}
+	#start header nav ul li a{
+		font-size: 1.8em;
+	}
+}
+@media only screen and (max-width: 720px) {
+	body {
+		overflow: hidden;
+	}
+		#tab {
+		display: block;
+	}
+		#tab {
+		display: block;
+		z-index: 1001;
+	}
+	#start header .inner nav {
+		height: 100vh;
+		width: 50%;
+		background-color: #3b3b3bd8;
+		position: fixed;
+		top: 0;
+		right: -50%;
+		/* min-width: 300px; 어느 해상도에서도 고정값으로 사용하려고 */
+		padding-top: 5.5vh;
+		transition: right 0.3s ease-out;/* 동작이 있을 때 만 적용됨 */
+		z-index: 1001;
+	}
+	#start header .inner nav.on {
+		right: 0;
+	}
+	#start header .inner nav ul {
+		display: block;
+	}
+	#start header .inner nav ul::-webkit-scrollbar {
+		display: none;
+	}
+	#start header .inner nav ul li a{
+	color: #ffffff;
+	text-align: center;
+	font-size: 2.5em;
+	align-items: center;
+	text-align: left;
+	width: 100%;
+	}
+	#start header .inner nav ul li {
+		position: relative;
+	}
+	#start header .inner nav ul li::after {
+		content: "";
+		width: 90%;
+		height: 1px;
+		background-color: #f09fb9b3;
+		left: 5%;
+		top: 100%;
+		position: absolute;
+	}
+
+	/* #start header .inner nav ul li::before {
+		width: 90%;
+		height: 1px;
+		left: 5%;
+		top: 100%;
+		transform: none;
+		transition: none;
+		background-color: #f0f0f0;
+	} */
+	
+}
+@media only screen and (max-width: 540px) {
+
+}
+
+
+/* 🧩메인 */
+.main {
+	position: relative;
+}
+.main .bg .bg_inner {
+	width: 100%;
+	/* height: 100vh; */
+	overflow: hidden;
+}
+.main .bg .bg_inner video {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover; /* 비디오 비율 유지 */
+	filter: brightness(0.5) contrast(1.2) saturate(0.4); /* 밝기, 대비, 채도를 조정 */
+}
+.main .inner {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 100%;
+}
+.main .keytext {
+	width: 80%;
+	margin: 0 auto;
+}
+.main .keytext {
+	line-height: 0.9;
+}
+.main .keytext .txt {
+	color: #fff;
+	font-size: clamp(5.5em, 7.5em, 8em);
+	text-align: center;
+	font-family: "Chakra Petch", sans-serif;
+	font-style: italic;
+	font-weight: 600;
+	letter-spacing: -0.14em;	
+}
+.main .keytext .txt span,
+.main .subtxt span {
+	display: inline-block;
+	/* transform: translateY(110%); */
+}
+.main .keytext .subtxt {
+	color: #F09FB8;
+	font-size: 5.5em;
+	text-align: center;
+	font-style: italic;
+	letter-spacing: -0.14em;
+	font-weight: 200;
+}
+.main .copyright {
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	width: 100%;
+	transform: translateX(-50%);
+	font-size: 0.8em;
+	z-index: 2;
+	text-align: center;
+}
+.main .copyright p {
+	width: 80%;
+	margin: 0 auto;
+	color: #fff;
+	font-weight: 100;
+	
+}
+
+@media only screen and (max-width: 1280px) {
+	.main .bg .bg_inner video {
+		height: 90vh;
+	}
+}
+@media only screen and (max-width: 1020px) {
+	.main .bg .bg_inner video {
+		height: 80vh;
+	}
+}
+@media only screen and (max-width: 960px) {
+	.main .bg .bg_inner video {
+		height: 73vh;
+	}
+}
+@media only screen and (max-width: 760px) {
+	.main .bg .bg_inner video {
+    height: 60vh;
+	}
+}
+@media only screen and (max-width: 540px) {
+	.main .bg .bg_inner video {
+    height: 40vh;
+	}
+}
+
+/* 🧩자기소개 */
+#me {
+	width: 100%;
+	padding: 12.5em 0;
+	overflow: hidden; /* 애니메이션 진입 전 숨김 처리 */
+}
+#me .title {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 70px;
+}
+#me .title h2 {
+	font-size: 3.3em;
+	color: #fff;
+	font-weight: 300;
+	font-style: italic;
+}
+#me .title h2 span {
+	color: #F09FB8;
+}
+#me .contant {
+	width: 90%;
+	margin: 0 auto;
+}
+#me .contant p {
+	color: #fff;
+	line-height: 3.5;
+	font-size: 1.1em;
+	font-weight: 100;
+	text-align: center;
+	opacity: 0; /* 초기 투명도 설정 */
+	transform: translateY(50px); /* 초기 위치 설정 (아래에서 올라올 예정) */
+}
+/* 🧩모토 */
+.moto {
+	width: 100%;
+	display: flex; /* Flexbox 사용 */
+	flex-direction: column; /* 세로 방향으로 정렬 */
+	justify-content: center; /* Y축 기준으로 가운데 정렬 */
+	overflow: hidden;
+	padding-top: 35vh;
+}
+.line {
+	display: flex;
+	width: 200vw;
+	white-space: nowrap;
+	border-top: 0.3px solid #4E4E4E;
+	border-bottom: 0.1px solid #4E4E4E;
+	align-items: center;
+	line-height: 1.7;
+}
+.line:nth-child(1) {
+	/* transform: rotate(-1deg); */
+	/* margin-bottom: 11vh; */
+	font-weight: 600;
+	font-size: 1.4em;
+	color: #fff;
+}
+.line:nth-child(2) {
+	justify-content: flex-end;
+	/* transform: rotate(1deg); */
+	font-weight: 900;
+	font-size: 1.4em;
+  color: transparent; /* 글자 색 투명 */
+	-webkit-text-stroke: 3px #F09FB8; /* 테두리 색과 두께 */
+}
+.line:nth-child(3) {
+	/* transform: rotate(-1deg); */
+	font-size: 1.4em;
+	font-weight: 600;
+	color: #fff;
+}
+.line:nth-child(4) {
+	justify-content: flex-end;
+	/* margin-top: 11vh; */
+	/* transform: rotate(1deg); */
+	font-weight: 900;
+	font-size: 1.4em;
+  color: transparent; /* 글자 색 투명 */
+	-webkit-text-stroke: 3px #F09FB8; /* 테두리 색과 두께 */
+}
+.line p {
+	display: flex;
+	/* font-size: clamp(2em, 5em, 4em); */
+	font-size: 6.5em;
+}
+
+@media only screen and (max-width: 1280px) {
+	.moto {
+		padding-top: 25vh;
+	}
+}
+@media only screen and (max-width: 1020px) {
+	.moto {
+		padding-top: 21vh
+	}
+	#me .title h2 {
+    font-size: 4.3em;
+	}
+	#me .contant p {
+    font-size: 1.5em;
+	}
+}
+@media only screen and (max-width: 960px) {
+	#me .title h2 {
+		font-size: 5.3em;
+	}
+		#me .contant p {
+			font-size: 1.9em;
+	}
+}
+@media only screen and (max-width: 760px) {
+	.moto {
+		padding-top: 19vh
+	}
+	#me {
+		padding: 13em 0;
+	}
+}
+@media only screen and (max-width: 540px) {
+	.moto {
+		padding-top: 11vh
+	}
+	#me .title h2 {
+		font-size: 5.5em;
+	}
+	#me .contant p {
+		font-size: 2.3em;
+	}
+	#me .title {
+    margin-bottom: 43px;
+	}
+}
+
+/* 🧩스킬 */
+
+#skill {
+	padding: 20em 0 25em 0;
+	overflow: hidden;
+}
+#skill .contants {
+	width: 90%;
+	margin: 0 auto;
+}
+#skill .contants .inner {
+	margin: 0 auto;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+#skill .contants .title {
+	text-align: center;
+	font-family: "Chakra Petch", sans-serif;
+	font-size: 5em;
+	padding: 10vh 0;
+	position: relative;
+	color: #fff;
+}
+#skill .contants .title::after {
+	content: "";
+	position: absolute;
+	bottom: 30px;
+	left: 0;	
+	width: 100%;
+	height: 1px;
+	background-color: #B5B5B5;
+}
+#skill .contants .txtbox {
+	display: flex;
+	justify-content: space-between;
+	line-height: 3;
+	position: relative;
+	padding-bottom: 90px;
+	opacity: 0;
+	transform: translateY(100px);
+	align-items: center;
+}
+#skill .contants .txtbox::after {
+	content: "";
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #B5B5B5;
+}
+#skill .contants .txtbox .right strong {
+	display: block;
+	font-size: 2.5em;
+	font-style: italic;
+	font-weight: 300;
+	margin-bottom: 0.5em;
+	color: #fff;
+}
+#skill .contants .txtbox .right span {
+	display: block;
+	font-size: 1.125em;
+	margin-bottom: 0.5em;
+	color: #fff;
+	font-weight: 100;
+}
+
+@media only screen and (max-width: 1280px) {
+	#skill {
+    padding-bottom: 18em;
+	}
+}
+@media only screen and (max-width: 1020px) {
+	#skill {
+    padding-bottom: 13em;
+	}
+	#skill .contants .txtbox .right strong {
+    font-size: 3em;
+	}
+	#skill .contants .txtbox .right span {
+    font-size: 1.6em;
+	}
+}
+@media only screen and (max-width: 960px) {
+	#skill .contants .txtbox .right strong {
+    font-size: 3em;
+	}
+	#skill .contants .txtbox .right span {
+    font-size: 1.6em;
+	}
+}
+@media only screen and (max-width: 720px) {
+	#skill {
+    padding-bottom: 10em;
+	}
+	#skill .contants .title {
+		font-size: 7em;
+	}
+	#skill .contants .txtbox .right strong {
+    font-size: 4em;
+	}
+	#skill .contants .txtbox .right span {
+	font-size: 1.9em;
+	}
+}
+@media only screen and (max-width: 540px) {
+	#skill {
+    padding-bottom: 5em;
+	}
+	#skill .contants .title {
+		padding: 8vh 0;
+	}
+	#skill .contants .txtbox .right span {
+		font-size: 1.8em;
+	}
+	#skill .contants .txtbox {
+		padding-bottom: 70px;
+	}
+	#skill .contants .title::after {
+    bottom: 21px;
+	}
+}
+
+/* 프로그램 아이콘 */
+#skill .contants .txtbox .icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-indent: -9999px;
+	overflow: hidden; 
+	white-space: nowrap;
+	color: transparent; 
+}
+#skill .contants .txtbox .icon.react::before {
+	content: "";
+	position: absolute;
+	width: 20em;
+	height: 20em;
+	top: 10%;
+	left: 55%;
+  background-image: url(./source/images/react.svg);
+	/* background-size: 206px 76px, 161px 161px, 132px 149px; */
+  background-repeat: no-repeat;
+	filter: brightness(0) invert(2);
+	opacity: 0.3;
+}
+#skill .contants .txtbox .icon.js::before {
+	content: "";
+	position: absolute;
+	width: 20em;
+	height: 20em;
+	top: 10%;
+	left: 80%;
+  background-image: url(./source/images/javascript.svg);
+	/* background-size: 206px 76px, 161px 161px, 132px 149px; */
+  background-repeat: no-repeat;
+	filter: brightness(0) invert(2);
+	opacity: 0.3;
+}
+#skill .contants .txtbox .icon.jsl::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  background-image: url("./source/images/gsap.svg"),url("./source/images/jquery.svg"),url("./source/images/swiperjs.svg");
+	background-size: 18vw 6vw, 9vw 9vw, 9vw 10vw;
+	/* background-size: 206px 76px, 161px 161px, 132px 149px; */
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 60% 10%, 80% 40%,	100% 30%;
+	filter: brightness(0) invert(2);
+	opacity: 0.3;
+}
+#skill .contants .txtbox .icon.hcs::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  background-image: url("./source/images/html.svg"),url("./source/images/css.svg"),url("./source/images/sass.svg");
+	background-size: 18vw 6vw, 9vw 9vw, 9vw 10vw;
+	/* background-size: 206px 76px, 161px 161px, 132px 149px; */
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 43% 70%, 70% 20%,	100% 65%;
+	filter: brightness(0) invert(2);
+	opacity: 0.3;
+}
+
+
+
+
+/* 🧩프로젝트 */
+
+#project {
+  padding: 15em 0 20em 0;
+  overflow: hidden;
+}
+
+#project .inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#project .title {
+  text-align: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 5em;
+  padding: 10vh 0;
+  color: #fff;
+  border-bottom: 1px solid #4e4e4e;
+}
+
+#project ul li {
+  display: flex;
+  width: 100%;
+}
+
+/* 변경됨: 이제 li 자체가 flex 컨테이너 역할을 하거나, .project-item-content를 활용 */
+#project ul li .project-item-content {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding: 4em;
+  width: 100%;
+  border-bottom: 1px solid #4E4E4E;
+}
+
+#project ul li .project-item-content .left {
+  margin: auto 0;
+  /* gap 속성은 left 내부에 여러 요소가 있을 때 사용합니다. 현재 HTML에는 p 태그 하나만 있어서 큰 의미는 없습니다. */
+  width: 20%;
+  font-family: "Pretendard", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+#project ul li .project-item-content .left .num {
+  padding-right: 93px;
+}
+
+#project ul li .project-item-content .left .num p {
+  color: #fff;
+  font-size: 1.875em;
+  font-weight: 100;
+}
+
+#project ul li .project-item-content .right {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+#project ul li .project-item-content .right .txt strong {
+  display: block;
+  color: #fff;
+  font-size: 2em;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+#project ul li .project-item-content .right .txt span {
+  display: block;
+  color: #fff;
+  line-height: 1.7;
+  font-weight: 100;
+  font-size: 1.125em;
+}
+
+#project ul li .project-item-content .right .rivw {
+  margin: auto 0;
+}
+
+#project ul li .project-item-content .right .rivw span {
+  display: inline-block;
+  padding: 15px 10px;
+  border: 1px solid #4E4E4E;
+  /* border-radius: 30%; */
+  color: #fff;
+}
+
+#project ul li .project-item-content .right .rivw span:hover {
+  background-color: #b5b5b5;
+}
+
+#project ul li .project-item-content .item_img {
+  position: absolute;
+  left: 30em;
+  top: -4.5em;
+  z-index: 2;
+  width: 25em;
+  height: 0;
+  /* background-image는 img 태그가 있으므로 필요 없습니다. */
+  /* background-position: 50%; */
+  /* background-size: cover; */
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0, 0, .28, .89);
+}
+
+#project ul li:hover .project-item-content .item_img {
+  height: 24em;
+  opacity: 1;
+}
+
+/* #project ul li .project-item-content .item_img .img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+} */
+
+#project .link-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6em;
+  width: 100%;
+}
+
+#project .link-box a {
+  display: block;
+  padding: 0.75em 1.5em;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 10em;
+  transition: background 0.3s ease-in-out;
+}
+
+#project .link-box a:hover {
+  background-color: #fff;
+  color: #101214;
+}
+
+#project .link-box a span {
+  line-height: 1.75;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* 커서 이미지박스 */
+.cursor .img-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 600px;
+  height: 0;
+  background-size: cover;
+  pointer-events: none;
+  transition: height 0.5s, opacity 0.5s 0.1s;
+}
+
+.cursor .img-box .image {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 1s;
+}
+
+.cursor .image img {
+  transform: scale(1.5);
+  transition: transform 1s 0.2s ease-out;
+}
+
+.cursor .img-box.on {
+  height: 400px;
+  opacity: 1;
+  transition: height 0.5s 0.1s, opacity 0.5s;
+}
+
+.cursor .img-box .image.on {
+  height: 100%;
+}
+
+.cursor .image.on img {
+  transform: scale(1.0);
+}
+
+@media only screen and (max-width: 1280px) {}
+
+@media only screen and (max-width: 1020px) {}
+
+@media only screen and (max-width: 960px) {
+  #project {
+    padding-bottom: 10em;
+  }
+
+  #project .title {
+    font-size: 7em;
+    padding: 7vh 0;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content {
+    padding: 6em 4em;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right {
+    display: block;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .txt strong {
+    font-size: 4em;
+    margin-bottom: 20px;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .txt span {
+    font-size: 2em;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .rivw {
+    margin-top: 40px;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .rivw span {
+    padding: 10px 50px;
+    font-size: 1.7em;
+    margin-right: 0;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .left .num p {
+    font-size: 2.5em;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .item_img {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  #project {
+    padding-bottom: 5em;
+    /* padding-bottom: em; 으로 되어 있어서 5em으로 수정했습니다. */
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  #project .title {
+    font-size: 7em;
+    padding: 7vh 0;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content {
+    display: block;
+    padding: 7em 4em;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .left {
+    width: 100%;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .left .num {
+    padding-left: 5px;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .left .num p {
+    font-size: 2.3em;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right {
+    display: block;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .txt strong {
+    color: #fff;
+    font-size: 5em;
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .txt span {
+    line-height: 1.6;
+    font-size: 2.35em;
+    white-space: pre-wrap;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .rivw {
+    margin-top: 20px;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .right .rivw span {
+    padding: 10px 50px;
+    font-size: 1.7em;
+    margin-right: 0;
+  }
+
+  /* 변경됨 */
+  #project ul li .project-item-content .item_img {
+    display: none;
+  }
+}
+
+/* 커서 이미지박스 */
+.cursor .img-box{
+	position: fixed;
+	top: 0;left: 0;
+	transform: translate(-50%,-50%);
+	opacity: 0;
+	width: 600px; height:0;
+	background-size: cover;
+	pointer-events: none;
+	transition: height 0.5s, opacity 0.5s 0.1s;
+}
+.cursor .img-box .image{
+	width: 100%;
+	height:0;
+	overflow: hidden;
+	transition: height 1s;
+}
+.cursor .image img{
+	transform: scale(1.5);
+	transition: transform 1s 0.2s ease-out;
+}
+.cursor .img-box.on{
+	height: 400px;
+	opacity: 1;
+	transition: height 0.5s 0.1s, opacity 0.5s;
+}
+.cursor .img-box .image.on{
+	height:100%;
+}
+.cursor .image.on img{
+	transform: scale(1.0);
+}
+
+@media only screen and (max-width: 1280px) {
+
+}
+@media only screen and (max-width: 1020px) {
+}
+@media only screen and (max-width: 960px) {
+	#project {
+    padding-bottom: 10em;
+	}
+	#project .title {
+    font-size: 7em;
+    padding: 7vh 0;
+	}
+	#project ul li a {
+    padding: 6em 4em;
+	}
+	#project ul li a .right {
+		display: block;
+	}
+		#project ul li a .right .txt strong {
+			font-size: 4em;
+			margin-bottom: 20px;
+	}
+	#project ul li a .right .txt span {
+    font-size: 2em;
+	}
+	#project ul li a .right .rivw {
+    margin-top: 40px;
+	}
+	#project ul li a .right .rivw span {
+    padding: 10px 50px;
+		font-size: 1.7em;
+		margin-right: 0;
+	}
+	#project ul li a .left .num p {
+		font-size: 2.5em;
+	}
+		#project ul li a .item_img {
+		display: none;
+	}
+}
+@media only screen and (max-width: 720px) {
+	#project {
+    padding-bottom: em;
+	}
+}
+@media only screen and (max-width: 540px) {
+	#project .title {
+    font-size: 7em;
+    padding: 7vh 0;
+	}
+	#project ul li a {
+    display: block;
+		padding: 7em 4em;
+	}
+	#project ul li a .left {
+    width: 100%;
+}
+	#project ul li a .left .num {
+    padding-left: 5px;
+    margin-bottom: 20px;
+		margin-top: 0;
+	}
+	#project ul li a .left .num p {
+    font-size: 2.3em;
+	}
+	#project ul li a .right {
+		display: block;
+	}
+	#project ul li a .right .txt strong {
+    color: #fff;
+    font-size: 5em;
+    font-weight: 200;
+    margin-bottom: 20px;
+	}
+	#project ul li a .right .txt span {
+    line-height: 1.6;
+		font-size: 2.35em;
+		white-space: pre-wrap;
+	}
+		#project ul li a .right .rivw {
+		margin-top: 20px;
+	}
+	#project ul li a .right .rivw span {
+    padding: 10px 50px;
+		font-size: 1.7em;
+		margin-right: 0;
+	}
+
+	#project ul li a .item_img {
+		display: none;
+	}
+}
+
+
+/* 🧩오픈소스 */
+.m_only {
+	display: none;
+}
+.update {
+	position: relative;
+	height: 100vh;
+}
+.update .update_text {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.update .swiper_wrap {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	max-width: 1520px;
+	transform: translate(-50%,-50%);
+}
+.update .swiper {
+	display: none;
+	height: 0;
+	filter: drop-shadow(0px 4px 4px rgba(0,0,0,.25));
+}
+.update .swiper .swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* font-size: 1.125em; */
+	background-color: #070707;
+	border: 3px solid #F09FB8;
+	box-sizing: border-box;
+}
+.update .swiper .swiper-slide .swiper_bg {
+	width: 100%;
+	height: 100%;
+}
+.update .swiper .swiper-slide .swiper_text {
+	padding: 4.5em 6.25em;
+	line-height: 1.2;
+	height: 100%;
+	color: #b5b5b5;
+	box-sizing: border-box;
+}
+.update .swiper .swiper-slide .cate {
+	margin-bottom: 10px;
+	width: 320px;
+	font-weight: 500;
+}
+.update .swiper .swiper-slide .cate span {
+	display: block;
+}
+.update .swiper .swiper-slide .cate .date {
+	margin-top: 20px;
+	font-size: 1em;
+	font-weight: 400;
+}
+.update .swiper .swiper-slide .swiper_text .tit {
+	margin: 10px 0 20px;
+	width: 320px;
+	line-height: 1.5;
+	font-size: 1.5em;
+	font-weight: 500;
+}
+.update .swiper .swiper-slide .swiper_text .txt {
+	width: 500px;
+	line-height: 1.5;
+	font-weight: 300;
+}
+.update .swiper .swiper-slide .swiper_text .tit,
+.update .swiper .swiper-slide .swiper_text .txt {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	white-space: normal;
+	word-break: keep-all;
+}
+.update .swiper .swiper-slide .swiper_text a {
+	position: relative;
+	display: block;
+	text-decoration: none;
+	width: 172px;
+	padding: 11px;
+	color: #fff;
+	border: 1px solid #fff;
+	font-size: 15px;
+	line-height: 1.15;
+	margin-top: 30px;
+}
+.update .swiper .swiper-slide .swiper_text a:hover {
+	background-color: #B5B5B5;
+}
+.update .swiper .swiper-slide .swiper_text a::before {
+	content: "";
+	position: absolute;
+	right: 17px;
+	top: 15px;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #fff;
+	border-left: 0;
+	border-bottom: 0;
+	transform: rotate(45deg);
+}
+.update .swiper .swiper-slide .swiper_text a::after {
+	content: "";
+	position: absolute;
+	right: 16px;
+	top: 20px;
+	width: 50px;
+	height: 1px;
+	background-color: #fff;
+}
+.update .swiper .swiper-pagination {
+	left: -37px;
+	bottom: 19px;
+	line-height: 1.15;
+	text-align: right;
+	font-size: 1em;
+	font-weight: 300;
+	color: #fff;
+}
+.update .swiper .swiper-button-next {
+	right: 37px;
+}
+.update .swiper .swiper-button-next::after {
+	right: 2.3em;
+}
+.update .swiper .swiper-button-prev {
+	left: 2.3em;
+}
+.update .swiper .swiper-button-next::after,
+.update .swiper .swiper-button-prev::after {
+	color: #fff;
+}
+.update .update_btn {
+	display: none;
+	position: absolute;
+	right: 10px;
+	bottom: -90px;
+	opacity: 0;
+}
+
+@media all and (min-width: 1440px) and (max-width: 1540px) {
+	.update .swiper .swiper_wrap {
+		width: 80%;
+		max-width: initial;
+	}
+}
+@media screen and (max-width: 1280px) {
+	.update .update_text {
+		display: none;
+	}
+	.update .update_text img {
+		width: 100%;
+	}
+	.update .swiper_wrap {
+		width: 90%;
+		max-width: initial;
+	}
+		.update .swiper .swiper-slide .cate span {
+    margin-top: 30px;
+	}
+		.update .swiper .swiper-slide .cate .date {
+    font-size: 1.2em;
+	}
+	.update .swiper .swiper-slide .swiper_text .tit {
+    font-size: 2em;
+	}
+	.update .swiper .swiper-slide .swiper_text .txt{
+		font-size: 1.3em;
+	}
+}
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.update .update_btn {
+		bottom: -200px;
+	}
+	.update .swiper .swiper-slide .cate .date {
+    font-size: 1.7em;
+	}
+	.update .swiper .swiper-slide .swiper_text .tit {
+    font-size: 2.5em;
+	}
+		.update .swiper .swiper-slide .swiper_text .txt{
+		font-size: 1.6em;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	.update .swiper .swiper-slide .cate span {
+		margin-top: 52px;
+	}
+	.update .swiper .swiper-slide {
+		border: none;
+	}
+	.update .swiper .swiper-slide .swiper_text a {
+		border: 1px solid #F09FB8;
+	}
+}
+@media screen and (max-width: 768px) {
+	.update {
+		padding-bottom: 15vh;
+		height: auto;
+	}
+	.update .update_title {
+		padding: 0 24px 24px;
+		font-weight: 300;
+		font-size: 2.5em;
+	}
+	.update .swiper_wrap {
+		top: 0;
+		left: 0;
+		max-width: 100%;
+		width: 100%;
+		transform: none;
+	}
+	.update .swiper {
+		display: block !important;
+		padding: 0 24px;
+		height: 350px !important;
+		filter: none;
+	}
+	.update .swiper .swiper-slide {
+		padding-bottom: 20px;
+		width: 100%;
+	}
+	.update .swiper .swiper-slide .swiper_text {
+		padding: 32px 50px
+	}
+	.update .swiper .swiper-slide .swiper_text .tit,
+	.update .swiper .swiper-slide .swiper_text .txt {
+		width: auto;
+	}
+	.update .swiper .swiper-slide {
+    border: none;
+	}
+	.update .swiper .swiper-slide .cate .date {
+    font-size: 3em;
+	}
+	.update .swiper .swiper-slide .swiper_text .tit {
+		font-size: 4.5em;
+	}
+	.update .swiper .swiper-slide .swiper_text .txt {
+		font-size: 2.5em;
+	}
+}
+@media only screen and (max-width: 540px) {
+}
+
+/* 🧩푸터 */
+footer {
+	position: relative; /* 부모 요소에 상대 위치를 설정 */
+	overflow: hidden; /* 자식 요소가 넘치지 않도록 설정 */
+	padding: 16em 0;
+}
+
+footer .ft_video {
+	width: 100%; /* 너비를 100%로 설정 */
+	height: 100%;
+	object-fit: cover; /* 비디오의 비율을 유지하면서 잘림 */
+	filter: brightness(0.3) saturate(1.5);
+	position: absolute; /* 비디오를 절대 위치로 설정 */
+	top: 0;
+	left: 0;
+	z-index: 1; /* 비디오의 z-index를 낮게 설정 */
+}
+
+footer .contants {
+	width: 70%;
+	margin: 0 auto;
+	font-family: "Chakra Petch", sans-serif;
+	position: relative; /* 상대 위치로 설정 */
+	z-index: 2; /* 내용을 비디오 위에 나타나도록 z-index를 높게 설정 */
+	color: #fff; /* 텍스트 색상 설정 */
+}
+footer .myname {
+	color: #fff;
+	font-weight: 300;
+	font-size: 5em;
+	margin-bottom: 112px;
+}
+footer .mail {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 29px;
+}
+footer .mail span {
+	color: #fff;
+	font-size: 1.3em;
+	letter-spacing: 3px;
+	font-weight: 100;
+}
+footer .mail span:first-child {
+	margin-left: 30px; /* 첫 번째 span에만 적용 */
+}
+footer .sns {
+	display: flex;
+	gap: 25px;
+	margin-left: 60px;
+}
+
+@media only screen and (max-width: 1400px) {
+	footer .myname {
+    font-size: 6em;
+	}
+		footer .mail{
+		font-size: 1.5em;
+	}
+}
+@media only screen and (max-width: 1280px) {
+	footer {
+    padding: 13em 0;
+	}
+}
+@media only screen and (max-width: 1160px) {
+	footer {
+    padding: 13em 0;
+	}
+}
+@media only screen and (max-width: 960px) {
+	footer .myname {
+    color: #fff;
+    font-weight: 300;
+    font-size: 5em;
+    margin-bottom: 78px;
+	}
+		footer .mail span:first-child {
+    margin-left: 17px;
+	}
+	footer .sns {
+    margin-left: 43px;
+	}	
+}
+@media only screen and (max-width: 720px) {
+	footer .myname {
+    font-size: 7em;
+    margin-bottom: 61px;
+	}
+}
+@media only screen and (max-width: 540px) {
+	
+}

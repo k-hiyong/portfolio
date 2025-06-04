@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>HI0 Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- <script src="https://unpkg.com/split-type"></script> -->
+<script src="js/lenis.js"></script>
+<script src="js/scrollText.js"></script>
+<script src="js/main.js"></script>
+</head>
+
+<body>
+	<!-- 인트로 -->
+	<div id="intro" style="display: none">
+		<div class="loding_bar">
+			<p>Loading : <span>Hi</span>0 Portfolio</p>
+			<div class="progress">
+				<div class="bar"><div class="icon"><img src="./source/images/star.png" alt="star.png"></div></div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+	<!-- 스타트 -->
+	<section id="start">
+		<header>
+			<div class="inner">
+				<div class="logo"><h1>HI0</h1></div>
+				<nav>
+					<ul>
+						<li><a href="">home</a></li>
+						<li><a href="">about</a></li>
+						<li><a href="">skill</a></li>
+						<li><a href="">project</a></li>
+						<li><a href="">open source</a></li>
+					</ul>
+				</nav>
+				<a href="" id="tab">tab</a>
+			</div>
+			<div class="dim"></div>
+		</header>
+		<div class="main">
+			<div class="bg">
+				<div class="bg_inner">
+					<video class="bg_video" loop autoplay muted playsinline data-wf-ignore="true" data-object-fit="cover">
+						<source src="./source/video/main video.mp4">
+					</video>
+				</div>
+			</div>
+			<div class="inner">
+				<div class="keytext">
+					<div class="txt">
+						<span>P</span>
+						<span>R</span>
+						<span>O</span>
+						<span>N</span>
+						<span>T</span>
+						<span>E</span>
+						<span>N</span>
+						<span>D</span>
+						<!-- <span>R</span> -->
+					</div>
+					<div class="subtxt">
+						<span>p</span>
+						<span>o</span>
+						<span>r</span>
+						<span>t</span>
+						<span>f</span>
+						<span>o</span>
+						<span>l</span>
+						<span>i</span>
+						<span>o</span>
+					</div>
+				</div>
+			</div>
+			<div class="copyright">
+				<p>2025 - Kim ha young All Right Reserved</p>
+			</div>
+		</div>
+	</section>
+	<!-- 자기소개 -->
+	<section id="me">
+		<div class="title"><h2>About <span>me</span></h2></div>
+		<div class="contant">
+			<p>배려와 소통을 바탕으로 팀과 함께 성장하는 프론트엔드 개발자입니다.</p>
+			<p>작은 아이디어도 놓치지 않고 더 나은 방향으로 발전시키는 걸 좋아합니다.</p>
+			<p>기술적 구현을 넘어서, 사용자 경험을 중심으로 설계할 수 있는 개발자를 지향합니다.</p>
+		</div>
+		<!-- 모토 -->
+		<div class="moto">
+			<div class="line">
+				<p class="first-parallel"></p>
+			</div>
+			<div class="line">
+				<p class="second-parallel"></p>
+			</div>
+			<div class="line">
+				<p class="third-parallel"></p>
+			</div>
+		</div>
+	</section>
+	<!-- 스킬 -->
+	<section id="skill">
+		<div class="contants">
+			<div class="inner">
+				<div class="title">Skill</div>
+				<div class="txtbox">
+					<div class="right">
+						<strong>React</strong>
+						<span>컴포넌트 단위의 화면 구성, 상태 관리(state & props), JSX 문법을 활용한 유동적인 UI 제작이 가능합니다.</span>
+						<span>React Router를 통한 페이지 전환, Styled-components를 이용한 컴포넌트 단위 스타일링을 구현할 수 있습니다.</span>
+						<span>다양한 라이브러리와의 연계를 통해 유연한 프로젝트 구조 설계가 가능합니다.</span>
+					</div>
+					<div class="icon react">svg</div>
+					</div>
+				<div class="txtbox">
+					<div class="right">
+						<strong>JavaScript</strong>
+						<span>DOM 제어, 이벤트 핸들링, 조건문과 반복문을 활용한 동적인 기능 구현이 가능하며,</span>
+						<span>ES6 문법 기반의 함수 선언, 구조 분해, 템플릿 리터럴 등으로 효율적인 코드 작성이 가능합니다.</span>
+						<span>기능 중심의 로직 구성과 화면 상호작용을 구현하는 데 활용할 수 있습니다.</span>
+					</div>
+					<div class="icon js">svg</div>
+				</div>
+				<div class="txtbox">
+					<div class="right">
+						<strong>JavaScript Library</strong>
+						<span>HTML5의 시맨틱 태그를 활용한 구조화된 마크업 작성, 웹 접근성을 고려한 페이지 구성이 가능합니다.</span>
+						<span>CSS의 Flexbox, Grid를 이용한 레이아웃 구현, 미디어 쿼리를 활용한 반응형 웹을 제작할 수 있습니다.</span>
+						<span>웹 인터페이스에 자연스러운 모션과 사용자 경험 요소를 더하는 데에 활용됩니다. </span>
+					</div>
+					<div class="icon jsl">svg</div>
+				</div>
+				<div class="txtbox">
+					<div class="right">
+						<strong>HTML & CSS & SASS</strong>
+						<span>HTML5 DTD 문법 준수 및 웹 접근성을 높인 Semantic Page 작성.</span>
+						<span>IR 기법을 이용한 스타일 구현, 모바일 스타일 구현,</span>
+						<span>전처리 기능을 CSS 프로그래밍 구현.</span>
+					</div>
+					<div class="icon hcs">svg</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 프로젝트 -->
+	<section id="project">
+		<div class="inner">
+			<div class="title">Project </div>
+			<ul class="project-list">
+				<li class="project-item mouse-event">
+					<div class="project-item-content"> <div class="left">
+							<div class="num">
+								<p>01</p>
+							</div>
+						</div>
+						<div class="right">
+							<div class="txt">
+								<strong>Marymond</strong>
+								<span>건축 산업 정보를 빠르게 탐색할 수 있는 공공 포털 구축</span>
+								<span>스크롤 흐름에 맞춘 시각적 전환으로 사용자 몰입도 강화</span>
+								<span>카드 레이아웃 기반 UI로 사용자 접근성과 가독성 향상</span>
+							</div>
+							<div class="rivw">
+								<a href="https://github.com/k-hiyong/project-marymond" target="_blank" style="text-decoration: none; color: inherit;">
+									<span>code reivew</span>
+								</a>
+							</div>
+						</div>
+						<div class="item_img">
+							<img src="./source/images/swiper.png" alt="code">
+						</div>
+					</div>
+				</li>
+				<li class="project-item mouse-event">
+					<div class="project-item-content">
+						<div class="left">
+							<div class="num">
+								<p>02</p>
+							</div>
+						</div>
+						<div class="right">
+							<div class="txt">
+								<strong>Db</strong>
+								<span>GSAP과 ScrollTrigger를 활용해 스크롤 기반 동적 인터랙션을 구현</span>
+								<span>사용자 스크롤에 맞춰 자연스럽고 부드러운 애니메이션 흐름을 설계</span>
+								<span>시각적 몰입감과 UX 완성도를 동시에 높인 프로젝트</span>
+							</div>
+							<div class="rivw">
+								<a href="https://github.com/k-hiyong/project-Db" target="_blank" style="text-decoration: none; color: inherit;">
+									<span>code reivew</span>
+								</a>
+							</div>
+						</div>
+						<div class="item_img">
+							<img src="./source/images/pj_wily.png" alt="code">
+						</div>
+					</div>
+				</li>
+				<li class="project-item mouse-event">
+					<div class="project-item-content">
+						<div class="left">
+							<div class="num">
+								<p>03</p>
+							</div>
+						</div>
+						<div class="right">
+							<div class="txt">
+								<strong>Nabi</strong>
+								<span>PC와 모바일 환경을 고려한 반응형 구조로 메뉴와 슬라이더 제작</span>
+								<span>사용자 흐름을 방해하지 않는 인터랙션 구현</span>
+								<span>UI의 일관성과 직관성을 높이는 방향으로 페이지의 흐름과 콘텐츠 배치 구성</span>
+							</div>
+							<div class="rivw">
+								<a href="https://github.com/k-hiyong/project-nabi" target="_blank" style="text-decoration: none; color: inherit;">
+									<span>code reivew</span>
+								</a>
+							</div>
+						</div>
+						<div class="item_img">
+							<img src="./source/images/pj_nabi.png" alt="code">
+						</div>
+					</div>
+				</li>
+				<li class="project-item mouse-event">
+					<div class="project-item-content">
+						<div class="left">
+							<div class="num">
+								<p>04</p>
+							</div>
+						</div>
+						<div class="right">
+							<div class="txt">
+								<strong>오 키친</strong>
+								<span>반응형 UI로 직관적이고 다양한 추천 레시피를 손쉽게 탐색</span>
+								<span>Swiper 슬라이더와 구글 지도 API를 활용해 시각적 경험과 위치 정보를 효과적으로 제공</span>
+								<span>웹사이트 내에서 바로 레시피 및 관련 자료를 다운로드할 수 있도록 하여 사용자의 편의성을 극대화</span>
+							</div>
+							<div class="rivw">
+								<a href="https://github.com/k-hiyong/project-O-kitchen" target="_blank" style="text-decoration: none; color: inherit;">
+									<span>code reivew</span>
+								</a>
+							</div>
+						</div>
+						<div class="item_img">
+							<img src="./source/images/code-2434271_640.jpg" alt="code">
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<!-- 오픈소스 -->
+	<section id="open_source">
+		<div class="update">
+			<span class="update_text d_only">
+				<img src="./source/images/open_top.png" class="open_top" alt="open top">
+				<img src="./source/images/open_bottom.png" class="open_bottom" alt="open bottom">
+			</span>
+			<span class="update_title hlv m_only"><img src="images/update_title_mo.png" alt="update"></span>
+			<div class="swiper_wrap">
+				<div class="swiper updateSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">반응형 데이터 테이블 컴포넌트</p>
+									<p class="txt">React 및 Tailwind CSS 기반의 재사용 가능한 UI 컴포넌트 구현</p>
+									<a href="https://open-source1-4ig46n3nt-k-hiyoungs-projects.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">React 기반의 동적 뉴스 및 링크 위젯 컴포넌트</p>
+									<p class="txt">React.js를 활용한 비동기 데이터 처리 및 UI 컴포넌트 구현</p>
+									<a href="https://open-source2-sand.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">React & Redux 기반의 동적 상품 슬라이더</p>
+									<p class="txt">Redux Toolkit으로 구현된 효율적인 상태 관리와 페이지네이션 UI</p>
+									<a href="https://open-source3-seven.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">동적 GNB(Global Navigation Bar) 컴포넌트</p>
+									<p class="txt">React.js 기반의 다단계 내비게이션 및 접근성 UX 구현</p>
+									<a href="https://open-source4-olive.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">Axios & GSAP 기반의 동적 GNB</p>
+									<p class="txt">React.js에서 비동기 데이터와 GSAP 애니메이션이 결합된 내비게이션</p>
+									<a href="http://open-source5-lime.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">반응형 SwiperJS 슬라이더 컴포넌트</p>
+									<p class="txt">React.js 기반의 뷰포트 크기 변화에 대응하는 슬라이더</p>
+									<a href="https://open-source6-six.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">더보기 기능이 있는 포트폴리오 리스트 출력</p>
+									<p class="txt">더미 데이터를 활용해 포트폴리오 항목을 3개씩 출력, '더보기' 버튼으로 점진적 로딩 구현</p>
+									<a href="https://open-source7-lac.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="swiper_bg">
+								<div class="swiper_text pre">
+									<p class="cate">
+										<span>Open Source</span>
+									</p>
+									<p class="tit">탭 정렬 기능이 있는 포트폴리오 리스트 출력</p>
+									<p class="txt">탭 클릭 시 useEffect 내 배열 복사로 불변성 유지, 제목/날짜 정렬 React 포트폴리오 컴포넌트</p>
+									<a href="https://open-source8-rho.vercel.app/" class="hlv">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="d_only">
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-pagination hlv"></div>
+					</div>
+				</div>
+				<div class="update_btn">
+					<div class="btn_s"><a href="" target="_blank">View All News</a></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 푸터 -->
+	<footer>
+		<div class="contants">
+			<div class="myname">Kim ha young</div>
+			<div class="mail">
+				<span>E-mail:</span>
+				<span>vpalffl2015.com</span>
+			</div>
+			<div class="sns">
+				<a href="https://www.notion.so/Ha_Young-Portfolio-1ce59d396348809ea706e9060f5b22dc?pvs=4"><img src="./source/images/notion.png" alt="notion.png"></a>
+				<a href="https://github.com/k-hiyong"><img src="./source/images/git.png" alt="git.png"></a>
+			</div>
+		</div>
+		<video class="ft_video" loop autoplay muted playsinline data-wf-ignore="true" data-object-fit="cover">
+			<source src="./source/video/ft_video.mp4">
+		</video>
+	</footer>
+	</div>
+</body>
+</html>
