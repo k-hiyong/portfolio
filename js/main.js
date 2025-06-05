@@ -16,8 +16,6 @@ window.addEventListener("load", function(){
 	function resizeFunction(){
 		mobileMenuWidth=nav.clientWidth;
 
-		// console.log(mobileMenuWidth);
-
 		if(window.innerWidth > 720) {
 			if(isMobile != "desktop") isMobile="desktop";
 		}
@@ -71,12 +69,10 @@ tab.addEventListener("click", function(e) {
 });
 
 
-const subMenuLinks = nav.querySelectorAll('a'); // nav 변수가 메뉴 요소를 참조한다고 가정
+const subMenuLinks = nav.querySelectorAll('a');
 
-// 각 서브 메뉴 링크에 클릭 이벤트 리스너를 추가
 subMenuLinks.forEach(link => {
   link.addEventListener("click", function() {
-    // 탭 메뉴 닫기 로직
     document.body.classList.remove("fixed");
     tab.classList.remove("on");
     nav.classList.remove("on");
@@ -90,36 +86,15 @@ subMenuLinks.forEach(link => {
   });
 });
 
-	// console.log(pageList);
+
 
 	lenisAnimation();
-
-	// const lenis=new Lenis();
-
-	// lenis.on("scroll", ScrollTrigger.update);
-
-	// gsap.ticker.add(function(time){
-	// 	lenis.raf(time*1000);
-	// });
-
-	// 메인 텍스트 인터렉션
-	    // 인트로 텍스트 애니메이션
-    gsap.from(".main .keytext .txt span, .main .subtxt span", {
-				opacity: 0,
-        yPercent: 110,
-        duration: 0.5,
-        stagger: 0.05,
-        ease: "power1"
-    });
-
 
 	navList.forEach(function(item, i){
 		navList[i].addEventListener("click", function(e){
 			e.preventDefault();
-
-			// console.log(i);
-			
-			 topPos=pageList[i].offsetTop; // offseTop : 상단위치
+		
+			topPos=pageList[i].offsetTop;
 
 			gsap.to(window, { scrollTo: topPos, duration: 0.4, onComplete: function(){
 				// nav.classList.remove("active");
@@ -127,95 +102,78 @@ subMenuLinks.forEach(link => {
 		});
 	});
 
-
-
-	/*
-	window.addEventListener("scroll", function(e){
-		// console.log(window.scrollY);
+	// 인트로 쿠키
+	gsap.set(".main .keytext .txt span, .main .subtxt span", {
+		opacity: 0,
+		yPercent: 110
 	});
-	*/
 
-	// // 페이지배경색 흰색 - 추가 or 제거
-	// function UIInteraction(n){
-	// 	switch(n){
-	// 		// case 0 :
-	// 		// 	document.body.classList.add("white");
-	// 		// 	break;
-	// 		case 1 :
-	// 			document.body.classList.remove("white");
-	// 			break;
-	// 		case 2 :
-	// 			document.body.classList.add("white");
-	// 			break;
-	// 		case 3 :
-	// 			document.body.classList.remove("white");
-	// 			break;
-	// 		case 4 :
-	// 			document.body.classList.remove("white");
-	// 			break;
-	// 		default : break;
-	// 	}
+	function mainTextMotion(){
+		gsap.to(".main .keytext .txt span, .main .subtxt span", {
+			opacity: 1,
+			yPercent: 0,
+			duration: 0.5,
+			stagger: 0.05,
+			ease: "power1"
+		});
+	}
 
-	// 	// 헤더 메뉴 배경 흰색으로 전환 시 글자색 변경 로직
-	// 	if(n === 2){
-	// 		header.classList.add("hd-dark");
-	// 	}
-	// 	else{
-	// 		header.classList.remove("hd-dark");
-	// 	}
+	function GetCookie(name){
+		let value=null, search=name+"=";
 
-	// 	navList.forEach(function(item, i){
-	// 		if(i == n){
-	// 			item.classList.add("active");
-	// 		}
-	// 		else{
-	// 			item.classList.remove("active");
-	// 		}
-	// 	});
-	// }
+		if(document.cookie.length > 0){
+			let offset=document.cookie.indexOf(search);
 
-	// pageList.forEach(function(item, i){
-	// 	gsap.timeline({
-	// 		scrollTrigger: {
-	// 			trigger: item,
-	// 			start: "top center",
-	// 			end: "bottom center",
-	// 			// markers: true,
-	// 			onEnter: function(){
-	// 				// console.log("enter : "+i);
+			if(offset != -1){
+				offset+=search.length;
+				let end=document.cookie.indexOf(";", offset);
 
-	// 				UIInteraction(i);
-	// 			},
-	// 			onEnterBack: function(){
-	// 				// console.log("enter back : "+i);
+				if(end == -1) end=document.cookie.length;
+				value=decodeURI(document.cookie.substring(offset, end));
+			}
+		} return value;
+	}
 
-	// 				UIInteraction(i);
-	// 			}
-	// 		}
-	// 	});
-	// });
+	function setCookie(name, value, expiredays){
+		let days=expiredays;
+		let expires;
 
-	// 인트로 변수선언
-	let intro=document.querySelector("#intro");
-	let icon=document.querySelector(".icon img");
-	let src=`source/images/star.png`;
-
-	icon.setAttribute("src", src);
-
-	gsap.fromTo(".loding_bar .progress .bar", { width: 0 }, {
-		width: "100%",
-		duration: 2,
-		ease: "none",
-		onComplete : function(){
-			gsap.to(intro, {
-				opacity: 0,
-				duration: 0.8,
-				onComplete: function(){
-					intro.remove();
-				}
-			})
+		if(days){
+			let date=new Date();
+			date.setTime(date.getTime()+(days*24*60*60*1000));
+			expires="; expires="+date.toGMTString();
 		}
-	});
+		else{
+			expires="";
+		}
+
+		document.cookie=name+"="+value+expires+"; path=/";
+	}
+
+	if(GetCookie("intro") != "hide"){
+		document.querySelector("#intro").classList.add("visible");
+
+		gsap.fromTo(".loding_bar .progress .bar", { width: 0 }, {
+			width: "100%",
+			duration: 2,
+			ease: "none",
+			onComplete : function(){
+				gsap.to(intro, {
+					opacity: 0,
+					duration: 0.8,
+					onComplete: function(){
+						intro.remove();
+						mainTextMotion();
+						setCookie("intro", "hide", 1);
+					}
+				})
+			}
+		});
+	}
+	else{
+		intro.remove();
+		mainTextMotion();
+	}
 
 	// 메인 페이지 비디오 속도 조절
 	const video = document.querySelector(".bg_video");
@@ -227,7 +185,7 @@ subMenuLinks.forEach(link => {
 
 	// 자기소개 p태그 인터렉션
 	gsap.fromTo("#me .contant p",
-			{ y: 50, opacity: 0 }, // 초기 상태 (아래에서 시작하고 투명)
+			{ y: 50, opacity: 0 }, 
 			{
 				y: 0, 
 				opacity: 1,
@@ -235,10 +193,9 @@ subMenuLinks.forEach(link => {
 				duration: 3, 
 				ease: "power2.out", 
 				scrollTrigger: {
-						trigger: "#me", // 애니메이션 시작
-						start: "top center", // #me 요소의 상단이 뷰포트의 중앙에 올 때 시작
-						end: "bottom center", // (선택 사항) 애니메이션이 끝나는 지점.
-						// markers: true
+						trigger: "#me", 
+						start: "top center", 
+						end: "bottom center", 
 				}
 			}
 	);
@@ -261,7 +218,7 @@ subMenuLinks.forEach(link => {
 
 	// .txtbox 순차 애니메이션
 	gsap.fromTo("#skill .contants .txtbox",
-		{ y: 100, opacity: 0 }, // 초기 상태: 아래 100px에서 시작, 투명
+		{ y: 100, opacity: 0 },
 		{
 			y: 0, 
 			opacity: 1, 
@@ -296,7 +253,7 @@ subMenuLinks.forEach(link => {
 
 	// 프로젝트 라인 인터렉션
 		gsap.fromTo("#project .right",
-		{ x: -100, opacity: 0 }, // 초기 상태: 아래 100px에서 시작, 투명
+		{ x: -100, opacity: 0 }, 
 		{
 			x: 0, 
 			opacity: 1, 
@@ -304,7 +261,6 @@ subMenuLinks.forEach(link => {
 			duration: 2, 
 			ease: "power2.out", 
 
-				// ScrollTrigger 설정
 			scrollTrigger: {
 				trigger: "#project", 
 				start: "top center", 
@@ -378,18 +334,6 @@ subMenuLinks.forEach(link => {
 		});
 	
 		mediaQuery.add("(max-width: 768px)", function(){
-			/*
-			gsap.from(".comment .aosup", {
-				y: 300,
-				opacity: 0.6,
-				duration: 1.5,
-				scrollTrigger: {
-					trigger: ".comment",
-					scrub: true,
-					start: "top 70%"
-				}
-			});
-			*/
 	
 			gsap.from(".update_title", {
 				y: -50,

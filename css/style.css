@@ -46,6 +46,7 @@ body::-webkit-scrollbar-track {
 
 /* 🧩인트로 */
 #intro {
+	display: none;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -55,6 +56,9 @@ body::-webkit-scrollbar-track {
 	font-weight: 300;
 	background-color: #070707;
 	background-size: calc(1670/1920*100%) auto;
+}
+#intro.visible {
+	display: block;
 }
 #intro .loding_bar {
 	position: relative;
